@@ -25,7 +25,7 @@ bool socket::is_valid() const
 bool socket::bind(const host_addr &ha)
 {
     if(!is_valid())
-		return false;
+        return false;
 
     return ::bind(m_sockfd, ha.get_addr(), sizeof(sockaddr)) == 0;
 }
@@ -33,7 +33,7 @@ bool socket::bind(const host_addr &ha)
 bool socket::connect(const host_addr &ha)
 {
     if(!is_valid())
-		return false;
+        return false;
 
     return ::connect(m_sockfd, ha.get_addr(), sizeof(sockaddr)) == 0;
 }
@@ -41,12 +41,12 @@ bool socket::connect(const host_addr &ha)
 bool socket::set_nonblock()
 {
     if(!is_valid())
-		return false;
+        return false;
 
     int flag = ::fcntl(m_sockfd, F_GETFL);
     if(flag != -1)
     {
-    	return (::fcntl(m_sockfd, F_SETFL, flag | O_NONBLOCK) != -1);
+        return (::fcntl(m_sockfd, F_SETFL, flag | O_NONBLOCK) != -1);
     }
 
     return false;
@@ -54,7 +54,7 @@ bool socket::set_nonblock()
 
 int socket::get_fd() const
 {
-	return m_sockfd;
+    return m_sockfd;
 }
 
 int socket::close()
@@ -62,9 +62,9 @@ int socket::close()
     int ret = 0;
     if(is_valid())
     {
-		ret = ::close(m_sockfd);
-		std::cout << "closing socket, ret= " << ret << std::endl;
-		m_sockfd = -1;
+        ret = ::close(m_sockfd);
+        std::cout << "closing socket, ret= " << ret << std::endl;
+        m_sockfd = -1;
     }
 
     return ret;

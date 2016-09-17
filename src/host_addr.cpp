@@ -50,11 +50,11 @@ uint16_t host_addr::get_port() const
 
 host_addr& host_addr::operator=(const host_addr& ha)
 {
-	if(this != &ha)
-	{
-		::memcpy(&m_addr, &ha.m_addr, sizeof(struct sockaddr));
-	}
-	return *this;
+    if(this != &ha)
+    {
+        ::memcpy(&m_addr, &ha.m_addr, sizeof(struct sockaddr));
+    }
+    return *this;
 }
 
 } // end of namespace

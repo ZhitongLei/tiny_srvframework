@@ -146,7 +146,7 @@ bool srv_framework::create_listen_socket()
     {
         udp_context udp_if;
         if(!init_udp_context(udp_if, udp_srv_ha_list[i].m_ha, 
-                udp_srv_ha_list[i].m_addr_name)) return false;
+                             udp_srv_ha_list[i].m_addr_name)){ return false; }
         m_udp_context.insert(std::pair<int,udp_context>(udp_if.m_sock.get_fd(), udp_if));
 
         if(!m_epoll.add_fd(udp_if.m_sock.get_fd()))

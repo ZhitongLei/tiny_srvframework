@@ -118,8 +118,7 @@ protected:
 	bool init_udp_context(udp_context &udp_if, const host_addr &addr, int udp_name);
 
     virtual int32_t handle_udp_packet(uint32_t sock_name, int sock_fd, 
-                                      const host_addr &ha,
-                                      const char* buf, size_t buf_len);
+                                      const host_addr &ha, const char* buf, size_t buf_len);
 
 	bool send_udp_packet(uint32_t sock_name, int sock_fd, 
                          const char* buf, size_t buf_len, 

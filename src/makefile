@@ -1,6 +1,6 @@
 INC_DIR = -I../include
 
-C_ARGS = -g -Wall -D _DEBUG_
+C_ARGS = -g -Wall #-D _DEBUG_
 CXX = g++
 CC  = gcc
 

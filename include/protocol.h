@@ -7,6 +7,8 @@
 
 namespace tiny_srv{
 
+// protocol: STX | ProtocolHead | message body | ETX
+
 // begin and end flag for package
 const char SRV_STX = 0x02;
 const char SRV_ETX = 0x03;
