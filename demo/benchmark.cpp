@@ -32,8 +32,8 @@ public:
    BenchmarkResult(uint32_t request_num)
        :request(request_num),
         request_finished(0),
-		start_time(0),
-		finish_time(0)
+        start_time(0),
+        finish_time(0)
    {}
 
    uint32_t request;
@@ -84,14 +84,14 @@ void UdpBenchmark(const BenchmarkConfig &config)
     int64_t request_time = 0, response_time = 0;
     string str("benchmark testing");
 
-	udp_socket us;
-	us.create();
-	host_addr ha(config.host, config.port);
+    udp_socket us;
+    us.create();
+    host_addr ha(config.host, config.port);
     benchmark_result->start_time = mstime();
     for(uint32_t i = 0; i < config.request; ++i){
         //fprintf(stdout, "round %u, send:%s, length:%u\n", i, str.c_str(), str.length());
         request_time = ustime();
-	    us.sendto(str.c_str(), str.length(), ha);
+        us.sendto(str.c_str(), str.length(), ha);
         int32_t n = us.recvfrom(buffer, sizeof(buffer), ha);
         //fprintf(stdout, "response: %s\n", buffer);
         response_time = ustime();
