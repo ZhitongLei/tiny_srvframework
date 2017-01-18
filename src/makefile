@@ -1,7 +1,9 @@
 INC_DIR = -I../include
 LIB_INSTALL_PATH = ../lib
 
-C_ARGS = -g -Wall #-D _DEBUG_
+# -pg for gprof, -g for gdb
+#C_ARGS = -pg -g -Wall #-D _DEBUG_
+C_ARGS = -Wall #-D _DEBUG_
 CXX = g++
 CXX11 = g++ -std=c++11 -static-libgcc -static-libstdc++
 CC  = gcc
@@ -19,7 +21,7 @@ CC  = gcc
 BINARY = test_srv
 LIB = libtinysrv.a
 
-OBJECT:= protocol.o socket.o host_addr.o conf.o udp_socket.o tcp_socket.o epoll_wrapper.o srv_framework.o blocking_queue.o
+OBJECT:= protocol.o socket.o host_addr.o conf.o udp_socket.o tcp_socket.o epoll_wrapper.o srv_framework.o blocking_queue.o log.o
 
 all:$(LIB)
 
